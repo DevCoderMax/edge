@@ -9,7 +9,7 @@ import {
   ChevronRight 
 } from 'lucide-react';
 
-export function WpSidebar({ currentTab, setCurrentTab, isCollapsed, setIsCollapsed }) {
+export function Sidebar({ currentTab, setCurrentTab, isCollapsed, setIsCollapsed }) {
   const menuItems = [
     { id: 'dashboard', label: 'Painel', icon: Gauge },
     { id: 'posts', label: 'Posts', icon: Pin },

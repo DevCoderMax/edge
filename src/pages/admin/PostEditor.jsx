@@ -3,7 +3,7 @@ import { Bold, Italic, Link, List, Quote } from 'lucide-react';
 import { api } from '../../core/apiClient.js';
 import { cms } from '../../core/HookEngine.js';
 
-export function WpPostEditor({ initialPost, onSaveSuccess, onCancel }) {
+export function PostEditor({ initialPost, onSaveSuccess, onCancel }) {
   const [post, setPost] = useState(() => ({
     title: initialPost?.title || '',
     slug: initialPost?.slug || '',

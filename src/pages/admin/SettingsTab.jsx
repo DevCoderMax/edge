@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { api } from '../../core/apiClient.js';
 
-export function WpSettingsTab({ onConfigSaved }) {
-  const [siteTitle, setSiteTitle] = useState('Unifica');
+export function SettingsTab({ onConfigSaved }) {
+  const [siteTitle, setSiteTitle] = useState('Edge CMS');
   const [tagline, setTagline] = useState('Apenas mais um site no Edge');
   const [apiUrl, setApiUrl] = useState(localStorage.getItem('EDGE_API_URL') || '');
   const [apiToken, setApiToken] = useState(localStorage.getItem('EDGE_API_TOKEN') || '');

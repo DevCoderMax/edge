@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { WpAdminBar } from './components/WpAdminBar.jsx';
-import { WpSidebar } from './components/WpSidebar.jsx';
-import { WpDashboardTab } from './pages/admin/WpDashboardTab.jsx';
-import { WpPostsTab } from './pages/admin/WpPostsTab.jsx';
-import { WpPostEditor } from './pages/admin/WpPostEditor.jsx';
-import { WpPluginsTab } from './pages/admin/WpPluginsTab.jsx';
-import { WpSettingsTab } from './pages/admin/WpSettingsTab.jsx';
+import { AdminBar } from './components/AdminBar.jsx';
+import { Sidebar } from './components/Sidebar.jsx';
+import { DashboardTab } from './pages/admin/DashboardTab.jsx';
+import { PostsTab } from './pages/admin/PostsTab.jsx';
+import { PostEditor } from './pages/admin/PostEditor.jsx';
+import { PluginsTab } from './pages/admin/PluginsTab.jsx';
+import { SettingsTab } from './pages/admin/SettingsTab.jsx';
 import { api } from './core/apiClient.js';
 import { cms } from './core/HookEngine.js';
 import { SmartSeoPlugin } from './plugins/smart-seo/index.js';
@@ -45,8 +45,8 @@ export default function App() {
 
   return (
     <div className="flex flex-col h-screen bg-[#f0f0f1] text-[#2c3338] overflow-hidden font-sans antialiased">
-      {/* 1. Barra Superior Clássica do WordPress (32px) */}
-      <WpAdminBar
+      {/* 1. Barra Superior Clássica (32px) */}
+      <AdminBar
         onNavigate={(tab) => {
           setEditingPost(null);
           setCurrentTab(tab);
@@ -56,8 +56,8 @@ export default function App() {
 
       {/* 2. Área Central: Menu Lateral + Conteúdo */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Menu Lateral do WordPress (Apenas o básico) */}
-        <WpSidebar
+        {/* Menu Lateral (Apenas o básico solicitado) */}
+        <Sidebar
           currentTab={editingPost ? 'posts' : currentTab}
           setCurrentTab={(tab) => {
             setEditingPost(null);
@@ -71,7 +71,7 @@ export default function App() {
         <main className="flex-1 overflow-y-auto p-5">
           <div className="max-w-[1200px]">
             {editingPost ? (
-              <WpPostEditor
+              <PostEditor
                 initialPost={editingPost}
                 onSaveSuccess={() => {
                   loadPosts();
@@ -82,7 +82,7 @@ export default function App() {
             ) : (
               <>
                 {currentTab === 'dashboard' && (
-                  <WpDashboardTab
+                  <DashboardTab
                     stats={stats}
                     posts={posts}
                     onRefresh={loadPosts}
@@ -91,7 +91,7 @@ export default function App() {
                   />
                 )}
                 {currentTab === 'posts' && (
-                  <WpPostsTab
+                  <PostsTab
                     posts={posts}
                     onRefresh={loadPosts}
                     onEditPost={handleEditPost}
@@ -99,7 +99,7 @@ export default function App() {
                   />
                 )}
                 {currentTab === 'pages' && (
-                  <WpPostsTab
+                  <PostsTab
                     posts={posts.filter(p => p.type === 'page')}
                     onRefresh={loadPosts}
                     onEditPost={handleEditPost}
@@ -107,10 +107,10 @@ export default function App() {
                   />
                 )}
                 {currentTab === 'plugins' && (
-                  <WpPluginsTab />
+                  <PluginsTab />
                 )}
                 {currentTab === 'settings' && (
-                  <WpSettingsTab onConfigSaved={loadPosts} />
+                  <SettingsTab onConfigSaved={loadPosts} />
                 )}
               </>
             )}

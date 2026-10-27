@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MessageSquare, CornerDownRight, X } from 'lucide-react';
 import { api } from '../../core/apiClient.js';
 
-export function WpPostsTab({ posts, onRefresh, onEditPost, onNewPost }) {
+export function PostsTab({ posts, onRefresh, onEditPost, onNewPost }) {
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [quickEditId, setQuickEditId] = useState(null);

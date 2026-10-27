@@ -1,7 +1,7 @@
 import React from 'react';
 import { Plus, User, ExternalLink } from 'lucide-react';
 
-export function WpAdminBar({ onNavigate, onNewPost }) {
+export function AdminBar({ onNavigate, onNewPost }) {
   return (
     <header className="h-8 bg-[#1d2327] text-[#c3c4c7] text-[13px] flex items-center justify-between px-3 select-none z-50 sticky top-0 font-sans border-b border-[#2c3338]">
       {/* Esquerda: Logo, Nome do Site, + Novo */}
@@ -12,7 +12,7 @@ export function WpAdminBar({ onNavigate, onNewPost }) {
           title="Edge CMS"
         >
           <div className="w-4 h-4 rounded-full bg-[#c3c4c7] text-[#1d2327] flex items-center justify-center text-[10px] font-black">
-            W
+            E
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SmartSeoPlugin } from '../../plugins/smart-seo/index.js';
 
-export function WpPluginsTab() {
+export function PluginsTab() {
   const [plugins, setPlugins] = useState([
     {
       id: SmartSeoPlugin.id,

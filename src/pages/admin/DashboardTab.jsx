@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Pin, FileText, MessageSquare, Plug } from 'lucide-react';
 import { api } from '../../core/apiClient.js';
 
-export function WpDashboardTab({ stats, posts, onRefresh, onNavigate, onNewPost }) {
+export function DashboardTab({ stats, posts, onRefresh, onNavigate, onNewPost }) {
   const [draftTitle, setDraftTitle] = useState('');
   const [draftContent, setDraftContent] = useState('');
   const [saving, setSaving] = useState(false);
