@@ -32,14 +32,6 @@ export function WpDashboardTab({ stats, posts, onRefresh, onNavigate, onNewPost 
       {/* Topo do Painel */}
       <div className="flex items-center justify-between pb-1">
         <h1 className="text-[23px] font-normal text-[#1d2327]">Painel</h1>
-        <div className="hidden sm:flex items-center space-x-2 text-[13px] text-[#2271b1]">
-          <button className="px-2 py-0.5 hover:bg-[#f6f7f7] border border-transparent hover:border-[#dcdcde] rounded">
-            Opções de tela ▾
-          </button>
-          <button className="px-2 py-0.5 hover:bg-[#f6f7f7] border border-transparent hover:border-[#dcdcde] rounded">
-            Ajuda ▾
-          </button>
-        </div>
       </div>
 
       {/* Caixa de Boas-Vindas */}

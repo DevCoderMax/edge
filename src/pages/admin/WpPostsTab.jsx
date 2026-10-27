@@ -58,11 +58,11 @@ export function WpPostsTab({ posts, onRefresh, onEditPost, onNewPost }) {
 
   return (
     <div className="font-sans text-[#2c3338]">
-      {/* Topo: Título + Botão Adicionar Novo + Ajuda */}
+      {/* 1. Título da Página e Botão Adicionar Novo */}
       <div className="flex items-center justify-between pb-3">
         <div className="flex items-center gap-2.5">
           <h1 className="text-[23px] font-normal text-[#1d2327]">Posts</h1>
-          <button 
+          <button
             onClick={onNewPost}
             className="px-2.5 py-1 text-[13px] text-[#2271b1] border border-[#2271b1] rounded hover:bg-[#2271b1] hover:text-white transition-colors"
           >
@@ -70,12 +70,20 @@ export function WpPostsTab({ posts, onRefresh, onEditPost, onNewPost }) {
           </button>
         </div>
 
-        <div className="hidden sm:flex items-center space-x-2 text-[13px] text-[#2271b1]">
-          <button className="px-2 py-0.5 hover:bg-[#f6f7f7] border border-transparent hover:border-[#dcdcde] rounded">
-            Opções de tela ▾
-          </button>
-          <button className="px-2 py-0.5 hover:bg-[#f6f7f7] border border-transparent hover:border-[#dcdcde] rounded">
-            Ajuda ▾
+        {/* Busca no Topo Direito (Estilo WordPress) */}
+        <div className="flex items-center gap-1">
+          <input
+            type="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Pesquisar posts"
+            className="bg-white border border-[#8c8f94] rounded px-2 py-1 text-[13px] text-[#2c3338] focus:border-[#2271b1] focus:outline-none w-52"
+          />
+          <button 
+            type="button"
+            className="px-2.5 py-1 bg-[#f6f7f7] border border-[#8c8f94] text-[#2c3338] text-[13px] rounded hover:bg-[#f0f0f1]"
+          >
+            Pesquisar posts
           </button>
         </div>
       </div>
@@ -102,19 +110,6 @@ export function WpPostsTab({ posts, onRefresh, onEditPost, onNewPost }) {
             className={filter === 'draft' ? 'text-[#1d2327] font-semibold' : 'text-[#2271b1] hover:underline'}
           >
             Rascunhos ({countDraft})
-          </button>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <input
-            type="search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Pesquisar posts"
-            className="bg-white border border-[#8c8f94] rounded px-2 py-1 text-[13px] text-[#2c3338] focus:border-[#2271b1] focus:outline-none w-56"
-          />
-          <button className="px-2.5 py-1 bg-[#f6f7f7] border border-[#8c8f94] text-[#2c3338] text-[13px] rounded hover:bg-[#f0f0f1]">
-            Pesquisar posts
           </button>
         </div>
       </div>

@@ -24,7 +24,7 @@ export function WpPluginsTab() {
 
   return (
     <div className="font-sans text-[#2c3338]">
-      {/* Topo: Título + Botão Adicionar Plugin + Guias de Ajuda */}
+      {/* Topo: Título + Botão Adicionar Plugin */}
       <div className="flex items-center justify-between pb-3">
         <div className="flex items-center gap-2.5">
           <h1 className="text-[23px] font-normal text-[#1d2327]">Plugins</h1>
@@ -33,15 +33,6 @@ export function WpPluginsTab() {
             className="px-2.5 py-1 text-[13px] text-[#2271b1] border border-[#2271b1] rounded hover:bg-[#2271b1] hover:text-white transition-colors"
           >
             Adicionar plugin
-          </button>
-        </div>
-
-        <div className="hidden sm:flex items-center space-x-2 text-[13px] text-[#2271b1]">
-          <button className="px-2 py-0.5 hover:bg-[#f6f7f7] border border-transparent hover:border-[#dcdcde] rounded">
-            Opções de tela ▾
-          </button>
-          <button className="px-2 py-0.5 hover:bg-[#f6f7f7] border border-transparent hover:border-[#dcdcde] rounded">
-            Ajuda ▾
           </button>
         </div>
       </div>

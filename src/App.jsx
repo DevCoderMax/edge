@@ -11,7 +11,7 @@ import { cms } from './core/HookEngine.js';
 import { SmartSeoPlugin } from './plugins/smart-seo/index.js';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState('plugins'); // Inicia na tela de plugins para bater com o screenshot!
+  const [currentTab, setCurrentTab] = useState('dashboard');
   const [posts, setPosts] = useState([]);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [editingPost, setEditingPost] = useState(null);
