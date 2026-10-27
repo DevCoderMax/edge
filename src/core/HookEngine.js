@@ -6,7 +6,43 @@ export class HookEngine {
   constructor() {
     this.actions = new Map();
     this.filters = new Map();
+    this.menus = [];
+    this.pageBuilders = [];
     this.errors = [];
+  }
+
+  /**
+   * Registra um item de Menu administrativo (estilo add_menu_page no WP).
+   */
+  registerMenu(item) {
+    if (!item.id || !item.label) {
+      throw new Error('Menu item deve conter "id" e "label".');
+    }
+    this.menus.push({
+      priority: 10,
+      pluginId: 'core',
+      children: [],
+      ...item
+    });
+    this.menus.sort((a, b) => (a.priority || 10) - (b.priority || 10));
+  }
+
+  getMenus() {
+    return [...this.menus];
+  }
+
+  /**
+   * Registra um Construtor de Páginas em tela cheia (estilo Elementor).
+   */
+  registerPageBuilder(builder) {
+    if (!builder.id || !builder.name || typeof builder.render !== 'function') {
+      throw new Error('PageBuilder deve conter "id", "name" e função "render".');
+    }
+    this.pageBuilders.push(builder);
+  }
+
+  getPageBuilders() {
+    return [...this.pageBuilders];
   }
 
   /**
@@ -99,6 +135,8 @@ export class HookEngine {
     };
     cleanMap(this.actions);
     cleanMap(this.filters);
+    this.menus = this.menus.filter((m) => m.pluginId !== pluginId);
+    this.pageBuilders = this.pageBuilders.filter((b) => b.pluginId !== pluginId);
   }
 
   _recordError(type, hookName, pluginId, err) {
