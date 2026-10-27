@@ -1,0 +1,23 @@
+{
+  "name": "edge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Zero-Server, Edge-First Headless CMS",
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"Edge CMS workspace ready\"",
+    "build": "echo \"Building Edge CMS...\""
+  },
+  "keywords": [
+    "cms",
+    "edge",
+    "serverless",
+    "turso",
+    "sqlite",
+    "cloudflare",
+    "headless",
+    "react"
+  ],
+  "author": "DevCoderMax",
+  "license": "MIT"
+}
